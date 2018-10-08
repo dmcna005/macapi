@@ -5,8 +5,10 @@ macapi
 
 |PyPI version| |Build Status| |Python 27| |Python 36|
 
-.. figure:: https://bitbucket.org/dmcna005/macapi/src/master/macapi_logo.png
-   :alt: macapi tool
+
+
+.. figure:: https://bitbucket.org/dmcna005/macapi/raw/c74e218d3ab39b9887a918c616bc4f52988c1a7b/macapi_logo.png
+   :alt: mtools box
 
 
 The following are the collection of tools that makes up macapi:
