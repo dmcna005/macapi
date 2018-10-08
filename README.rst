@@ -6,7 +6,7 @@ ______
 
 The following are the collection of tools that makes up macapi.
 
-[alerts](https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166494558/macapi#macapi-alerts)
+[alerts](https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166494558/macapi#macapi-alerts/)
 
       Used to get and create alert configuration for a single group
 
