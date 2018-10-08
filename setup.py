@@ -1,17 +1,34 @@
+#!bin/python
+
+"""Setup tool for macapi."""
+
 from setuptools import setup
 
-def readme():
-    with open('README.md') as f:
-        return f.read()
+# import versions.py for versions display
+with open('macapi/version.py') as f:
+    exec(f.read())
+
+# import readme.rst long_description file content to be displayed
+with open('macapi/readme.rst') as f:
+    long_description = f.read()
+
+packages = ['macapi']
 
 setup(name='macapi',
       scripts=['bin/alerts'],
-      version='1.0.1',
-      description='A python restful api access for MongoDB Atlas Cloud',
+      version=__version__,
+      long_description=long_description,
+      classifiers=[
+        'Development Status :: 1 - Development',
+        'License :: OSI Approved :: Apache 2.0 License',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Text Processing :: Linguistic',
+        'Intended Audience :: Developers'
+      ],
       url='https://bitbucket.org/dmcna005/macapi',
       author='Dwayne McNab',
-      author_email='dmcnab@ftdi.com',
-      license='GENU',
-      packages=['macapi'],
+      author_email='dwayneexec@gmail.com',
+      license='Apache 2.0',
+      packages=packages,
       install_requires=['requests'],
       zip_safe=False)
