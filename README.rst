@@ -5,7 +5,7 @@ macapi
 
 |PyPI version| |Build Status| |Python 27| |Python 36|
 
-.. figure:: macapi.png
+.. figure:: https://bitbucket.org/dmcna005/macapi/src/master/macapi_logo.png
    :alt: macapi tool
 
 
