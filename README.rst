@@ -3,7 +3,7 @@ macapi
 ======
 **What is macapi?** macapi is a tool used to easily access MongoDB Atlas using resful api call. It's primarily used to easilty adminsiter Atlas instances and group.
 
-|PyPI version| |Build Status| |Python 27| |Python 36|
+
 
 
 
