@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ======
 macapi
 ======
@@ -26,4 +27,10 @@ The following scripts makes up the macapi tool:
 
 
 
+=======
+# macapi
+
+ What is macapi?
+ __________________
+>>>>>>> dev_alerts
 
