@@ -1,6 +1,2 @@
 include *.md
-<<<<<<< HEAD
-=======
-include README.rst
->>>>>>> dev_alerts
 recursive-include macapi *.py
