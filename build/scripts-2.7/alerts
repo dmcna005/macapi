@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 import os, argparse, json, logging, time, sys
 
-from api_base import ApiBase
+from macapi.api_base import ApiBase
 from pprint import pprint
 from requests import post, Session
 from requests.auth import HTTPDigestAuth
