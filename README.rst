@@ -3,6 +3,7 @@ macapi
 ======
 **What is macapi?** macapi is a tool used to easily access MongoDB Atlas using resful api call. It's primarily used to easilty adminsiter Atlas instances and group.
 
+
 **How do I contribute?** to contribuute you need to clone this repo. Once you have a copy of the repo then you need to create a local develpment branh in the form: feature-dev.
 Once you have a local feature branch then you can push to master and open up a pull request.
 Your pull request should detail what you are changing or the new feature that you are adding.
@@ -11,11 +12,12 @@ Finally you can run git pull to pull down the new changes locally :)
 
 
 
+
 .. figure:: https://bitbucket.org/dmcna005/macapi/raw/85cc9968c8b35ab5b675eecb7bf56dc6ab69fee6/macapi.png
    :alt: mtools box
 
 
-The following scripts makes up the macapi tool:
+The following scripts makes up the macapi toolkit:
 
 ------
 
