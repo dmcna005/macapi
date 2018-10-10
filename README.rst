@@ -19,7 +19,6 @@ macapi
 The following scripts makes up the macapi toolkit:
 
 
-
  `alerts <https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166232797/Alerts>`__
    Used to get and create alert configuration for a single group
       
