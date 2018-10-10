@@ -16,7 +16,8 @@ with open('readme.rst') as f:
     long_description = f.read()
 
 packages = ['macapi',
-            'macapi.alerts'
+            'macapi.alerts',
+            'macapi.ip_whitelist'
             ]
 
 setup(name='macapi',

@@ -1,25 +1,28 @@
 import json, logging, pprint, requests
 
 from requests.auth import HTTPDigestAuth
-
+from requests import Session
 class ApiBase(object):
     def __init__(self, group_id, api_user, api_key):
         self.base_url = 'https://cloud.mongodb.com' + '/api/atlas/v1.0'
         self.group_id = group_id
         self.api_user = api_user
         self.api_key = api_key
+        self.session = Session()
 
     def get(self, url):
+        s = self.session
         logging.info("Executing GET: {}".format(url))
-        r = requests.get(url, auth=HTTPDigestAuth(self.api_user, self.api_key))
+        r = s.get(url, auth=HTTPDigestAuth(self.api_user, self.api_key))
         self.check_response(r)
         logging.debug("{}".format(pprint.pformat(r.json())))
         return r.json()
 
     def put(self, url, json_body):
+        s = self.session
         logging.info("Executing PUT: {}".format(url))
         headers = {'content-type': 'application/json'}
-        r = requests.put(
+        r = s.put(
             url,
             auth=HTTPDigestAuth(self.api_user, self.api_key),
             data=json.dumps(json_body),
@@ -31,9 +34,10 @@ class ApiBase(object):
         return r.json()
 
     def patch(self, url, json_body):
+        s = self.session
         logging.info("Executing PATCH: {}".format(url))
         headers = {'content-type': 'application/json'}
-        r = requests.patch(
+        r = s.patch(
             url,
             auth=HTTPDigestAuth(self.api_user, self.api_key),
             data=json.dumps(json_body),
@@ -45,9 +49,10 @@ class ApiBase(object):
         return r.json()
 
     def post(self, url, json_body):
+        s = self.session
         logging.info("Executing POST To URL: {}".format(url))
         headers = {'content-type': 'application/json'}
-        r = requests.post(
+        r = s.post(
             url,
             auth=HTTPDigestAuth(self.api_user, self.api_key),
             data=json_body,
@@ -59,9 +64,10 @@ class ApiBase(object):
         return r.json()
 
     def delete(self, url, json_body):
+        s = self.session
         logging.info("Executing DELETE To URL: {}".format(url))
         headers = {'content-type': 'application/json'}
-        r = request.delte(
+        r = s.delte(
             url,
             auth=HTTPDigestAuth(self.api_user, self.api_key),
             data=json.dumps(json_body),
