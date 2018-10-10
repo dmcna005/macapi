@@ -31,6 +31,10 @@ macapi
 For installation instructions please visit the the `installation page
 <https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166560639/Installation>`__.
 
+**Thinking about contributing?**
+
+Please read the `contribution page <https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166495041/Contribution>`__.
+
 
 .. |Python 27| image:: https://img.shields.io/badge/Python-2.7-brightgreen.svg?style=flat
    :target: http://python.org
