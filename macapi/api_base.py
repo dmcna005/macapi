@@ -55,7 +55,7 @@ class ApiBase(object):
         r = s.post(
             url,
             auth=HTTPDigestAuth(self.api_user, self.api_key),
-            data=json_body,
+            data=json.dumps(json_body),
             headers=headers
         )
         self.check_response(r)
