@@ -31,12 +31,14 @@ class Cluster(ApiBase):
                 results[key] = value
 
         json_file = json.dumps(results, indent=1)
+
         print(json_file)
 
     # creates an m10 replicaSet
     def create_small(self, group_id, name):
         s = Session()
         base_url = self.base_url
+        directory = os.path.join('cluster', 'json_files', 'cluster_m10.json')
         name = name
         url = "{}/groups/{}/clusters".format(base_url, group_id)
         auth = HTTPDigestAuth(self.api_user, self.api_key)
@@ -44,14 +46,13 @@ class Cluster(ApiBase):
         logging.info("Executing POST: {}".format(url))
         #base_url = self.base_url
         #url = "{}/groups/{}/clusters/{}".format(base_url, group_id, name)
-        with open('cluster_m10.json') as f:
+        with open(directory) as f:
             json_file = json.load(f)
             for key in json_file.keys():
                 try:
                     if key == 'name':
                         json_file['name'] = name
                         print(json_file)
-                        print('****************')
                         #yield True
                     #r = s.post(json_file)
                     r = s.post(url,
@@ -91,7 +92,9 @@ run = Cluster(args.group_id, args.api_user, args.api_key)
 
 if args.get:
     if args.file:
+        # makes directory platform independent
         directory = os.path.relpath(args.file)
+        print(directory)
         with open(directory, 'w') as f:
             sys.stdout = f
             run.get_cluster(args.group_id, args.name)
