@@ -9,12 +9,13 @@ with open('macapi/version.py') as f:
     exec(f.read())
 
 # import readme.rst long_description file content to be displayed
-with open('macapi/README.rst') as f:
+with open('README.rst') as f:
     long_description = f.read()
 
 packages = ['macapi',
             'macapi.alerts',
-            'macapi.ip_whitelist'
+            'macapi.ip_whitelist',
+            'macapi.cluster'
             ]
 
 setup(name='macapi',
