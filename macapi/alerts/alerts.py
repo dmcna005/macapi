@@ -28,7 +28,7 @@ class OpsmanagerApi(ApiBase):
         json_file = os.path.join("configs", 'alert_file.json')
         logging.info("Getting alert configuration from: {}" + "for goupId: {}".format(url, group_id))
 
-        with open('configs/' + 'alert_file.json', 'w') as f:
+        with open(json_file, 'w') as f:
             json.dump(alerts, f, indent=4)
             logging.debug("{}".format(pprint(alerts)))
 

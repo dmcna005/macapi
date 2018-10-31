@@ -13,7 +13,6 @@ class OpsmanagerApi(ApiBase):
 
     def get_alerts(self, group_id):
         base_url = self.base_url
-        print(base_url)
         url = "{}/groups/{}/alertConfigs".format(base_url, group_id)
         print(url)
         data = self.get(url)
@@ -29,7 +28,7 @@ class OpsmanagerApi(ApiBase):
         json_file = os.path.join("configs", 'alert_file.json')
         logging.info("Getting alert configuration from: {}" + "for goupId: {}".format(url, group_id))
 
-        with open('configs/' + 'alert_file.json', 'w') as f:
+        with open(json_file, 'w') as f:
             json.dump(alerts, f, indent=4)
             logging.debug("{}".format(pprint(alerts)))
 
@@ -39,7 +38,7 @@ class OpsmanagerApi(ApiBase):
         url = "{}/groups/{}/alertConfigs".format(base_url, group_id)
         auth = HTTPDigestAuth(self.api_user, self.api_key)
         headers = {'content-type': 'application/json'}
-        logging.info("Executing PUT: {}".format(url))
+        logging.info("Executing POST: {}".format(url))
         with open('configs/alert_file.json') as json_file:
             data = json.load(json_file)
             keys = ["groupId", "eventTypeName", "enabled", "metricThreshold", "notifications"]
