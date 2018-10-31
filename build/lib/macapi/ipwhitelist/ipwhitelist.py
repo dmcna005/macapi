@@ -44,7 +44,7 @@ parser.add_argument('-g', '--group_id', required=True, help='id of the group tha
 parser.add_argument('-u', '--api_user', required=True, help='the email address you use to login')
 parser.add_argument('-k', '--api_key', required=True, help='Your Atlas api key')
 args = parser.parse_args()
-#run = Whitelist(args.group_id, args.api_user, args.api_key)
+run = Whitelist(args.group_id, args.api_user, args.api_key)
 
 if args.get:
     if args.file:
@@ -62,7 +62,7 @@ else:
     print('you did not enter an option...')
 
 def main():
-    run = Whitelist(args.group_id, args.api_user, args.api_key)
+    run 
 
 
 if __name__ == '__main__':

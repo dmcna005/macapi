@@ -49,8 +49,7 @@ class Cluster(ApiBase):
         auth = HTTPDigestAuth(self.api_user, self.api_key)
         headers = {'content-type': 'application/json'}
         logging.info("Executing POST: {}".format(url))
-        #base_url = self.base_url
-        #url = "{}/groups/{}/clusters/{}".format(base_url, group_id, name)
+
         with open(directory) as f:
             json_file = json.load(f)
             for key in json_file.keys():
@@ -71,16 +70,44 @@ class Cluster(ApiBase):
                     self.check_response(r)
 
      #creates an m30 replicaSet
-
         def create_medium(self, group_id, name):
+            s = Session()
             base_url = self.base_url
-            url = "{}/groups/{}/clusters/{}".format(base_url, group_id, name, json_file)
-            self.post(url, 'cluster/cluster_m30.json')
+            path = os.path.abspath('macapi/json_files')
+            directory = os.path.join(path, 'cluster_m30.json')
+            name = name
+            url = "{}/groups/{}/clusters".format(base_url, group_id)
+            auth = HTTPDigestAuth(self.api_user, self.api_key)
+            headers = {'content-type': 'application/json'}
+            logging.info("Executing POST: {}".format(url))
 
-        def resize(self, group_id, name):
+            with open(directory) as f:
+                json_file = json.load(f)
+                for key in json_file.keys():
+                    try:
+                        if key == 'name':
+                            json_file['name'] = name
+                            print(json_file)
+                            #yield True
+                        #r = s.post(json_file)
+                        r = s.post(url,
+                            auth=auth,
+                            data=json.dumps(json_file),
+                            headers=headers
+                            )
+
+                            #yield false
+                    except:
+                        self.check_response(r)
+
+        def resize(self, group_id, name, size):
             base_url = self.base_url
             url = "{}/groups/{}/clusters/{}".format(base_url, group_id, name)
-            self.path(url, 'test_json')
+            data = {'providerSettings.instanceSizeName' : size}
+            result = self.patch(url, data)
+            return result
+
+
 
 
 # Initialize the command line options parser
@@ -92,13 +119,13 @@ parser.add_argument('-n', '--name', required=True, help='the name of the cluster
 parser.add_argument('-g', '--group_id', required=True, help='id of the group that you are trying to make the changes for')
 parser.add_argument('-u', '--api_user', required=True, help='the email address you use to login')
 parser.add_argument('-k', '--api_key', required=True, help='Your Atlas api key')
+parser.add_argument('-S', '--size', action='store_true', help='reszises an intance')
 args = parser.parse_args()
 run = Cluster(args.group_id, args.api_user, args.api_key)
 
 if args.get:
     if args.file:
         # makes directory platform independent
-        #path = os.path.relpath('/cluster', 'json_files')
         directory = os.path.relpath(args.file)
         with open(directory, 'w') as f:
             sys.stdout = f
@@ -115,12 +142,18 @@ elif args.create:
     if answer.lower().startswith('s'):
         run.create_small(args.group_id, args.name)
     elif answer.lower().startswith('m'):
-        run.create_medium(args.group_id, args.name, 'cluster_m30.json')
+        run.create_medium(args.group_id, args.name)
+
+elif args.size:
+    print('\033[1;33monly accepts sizes M10 or M30\033[1;m]')
+    size_name = raw_input('enter the instance size: ')
+    if size_name.upper().startswith('M10'):
+        run.resize(args.group_id, args.name, size_name)
 else:
     print('you did not enter an option...')
 
 def main():
-    run = Cluster(args.group_id, args.api_user, args.api_key)
+    run
 
 
 if __name__ == '__main__':
