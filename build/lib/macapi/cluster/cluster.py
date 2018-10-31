@@ -120,8 +120,8 @@ else:
     print('you did not enter an option...')
 
 def main():
-    run
-    return 0 # return an integer
+    run = Cluster(args.group_id, args.api_user, args.api_key)
+
 
 if __name__ == '__main__':
     sys.exit(main())
