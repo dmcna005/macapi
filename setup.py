@@ -21,8 +21,8 @@ packages = ['macapi',
 setup(name='macapi',
       entry_points={
           'console_scripts': [
-              'alerts=macapi.alerts.alerts:main'
-              'ipwhitelist=macapi.ip_whitelist.ip_whitelist:main'
+              'alerts=macapi.alerts.alerts:main',
+              'ipwhitelist=macapi.ip_whitelist.ip_whitelist:main',
               'cluster=macapi.cluster.cluster:main'
           ]
       },
