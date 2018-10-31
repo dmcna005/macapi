@@ -62,7 +62,7 @@ else:
     print('you did not enter an option...')
 
 def main():
-    run = Whitelist(args.group_id, args.api_user, args.api_key)
+    run
     return 0 # returns integer
 
 if __name__ == '__main__':

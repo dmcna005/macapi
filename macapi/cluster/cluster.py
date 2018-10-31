@@ -25,20 +25,25 @@ class Cluster(ApiBase):
         details = {k:v for (k, v) in data.items() if k not in keys}
         results = {}
 
-        # remove duplicate keys if any
-        for key,value in details.items():
-            if 'replicationSpecs' not in results.keys():
-                results[key] = value
+        try:
+            # remove duplicate keys if any
+            for key,value in details.items():
+                if 'replicationSpecs' not in results.keys():
+                    results[key] = value
 
-        json_file = json.dumps(results, indent=1)
+                json_file = json.dumps(results, indent=1)
 
-        print(json_file)
+            return json_file
+
+        except Exception as e:
+            print('error found: ' + e)
 
     # creates an m10 replicaSet
     def create_small(self, group_id, name):
         s = Session()
         base_url = self.base_url
-        directory = os.path.join('cluster', 'json_files', 'cluster_m10.json')
+        path = os.path.abspath('json_files')
+        directory = os.path.join(path, 'cluster_m10.json')
         name = name
         url = "{}/groups/{}/clusters".format(base_url, group_id)
         auth = HTTPDigestAuth(self.api_user, self.api_key)
@@ -93,12 +98,18 @@ run = Cluster(args.group_id, args.api_user, args.api_key)
 if args.get:
     if args.file:
         # makes directory platform independent
+        #path = os.path.relpath('/cluster', 'json_files')
         directory = os.path.relpath(args.file)
         with open(directory, 'w') as f:
             sys.stdout = f
-            run.get_cluster(args.group_id, args.name)
+            # get_cluster is a return method so we need to save it as an object for next line of the code
+            get = run.get_cluster(args.group_id, args.name)
+            # printing get so that it gets redirected into standard out which is the object f
+            print(get)
+
     else:
-        run.get_cluster(args.group_id, args.name)
+        get = run.get_cluster(args.group_id, args.name)
+        print(get)
 elif args.create:
     answer = raw_input('Enter small or medium: ')
     if answer.lower().startswith('s'):
