@@ -100,14 +100,12 @@ class Cluster(ApiBase):
                     except:
                         self.check_response(r)
 
-        def resize(self, group_id, name, size):
-            base_url = self.base_url
-            url = "{}/groups/{}/clusters/{}".format(base_url, group_id, name)
-            data = {'providerSettings.instanceSizeName' : size}
-            result = self.patch(url, data)
-            return result
-
-
+    def resize(self, group_id, name, size):
+        base_url = self.base_url
+        url = "{}/groups/{}/clusters/{}".format(base_url, group_id, name)
+        data = {'providerSettings.instanceSizeName' : size}
+        result = self.patch(url, data)
+        return result
 
 
 # Initialize the command line options parser
@@ -147,8 +145,16 @@ elif args.create:
 elif args.size:
     print('\033[1;33monly accepts sizes M10 or M30\033[1;m]')
     size_name = raw_input('enter the instance size: ')
-    if size_name.upper().startswith('M10'):
-        run.resize(args.group_id, args.name, size_name)
+    # check that the size_name variable is not empty
+    if size_name != '':
+        print('you are about to rezie {} to {} '.format(args.name, size_name))
+        answer = raw_input('type y/n: ')
+        if answer.lower().startswith('y'):
+            update = run.resize(args.group_id, args.name, args.size)
+            print(update)
+        else:
+            print('aborting...')
+            sys.exit(0) # exit cleanly
 else:
     print('you did not enter an option...')
 
