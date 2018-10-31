@@ -14,7 +14,7 @@ with open('README.rst') as f:
 
 packages = ['macapi',
             'macapi.alerts',
-            'macapi.ip_whitelist',
+            'macapi.ipwhitelist',
             'macapi.cluster'
             ]
 
@@ -22,9 +22,9 @@ setup(name='macapi',
       entry_points={
           'console_scripts': [
               'alerts=macapi.alerts.alerts:main',
-              'ipwhitelist=macapi.ip_whitelist.ip_whitelist:main',
+              'ipwhitelist=macapi.ipwhitelist.ipwhitelist:main',
               'cluster=macapi.cluster.cluster:main'
-          ]
+          ],
       },
       #scripts=['bin/alerts'],
       version=__version__,
