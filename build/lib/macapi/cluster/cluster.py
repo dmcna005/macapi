@@ -120,7 +120,7 @@ else:
     print('you did not enter an option...')
 
 def main():
-    run = OpsmanagerApi(args.group_id, args.api_user, args.api_key)
+    run
     return 0 # return an integer
 
 if __name__ == '__main__':
