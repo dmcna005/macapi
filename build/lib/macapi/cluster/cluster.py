@@ -42,7 +42,7 @@ class Cluster(ApiBase):
     def create_small(self, group_id, name):
         s = Session()
         base_url = self.base_url
-        path = os.path.abspath('json_files')
+        path = os.path.abspath('macapi/json_files')
         directory = os.path.join(path, 'cluster_m10.json')
         name = name
         url = "{}/groups/{}/clusters".format(base_url, group_id)
