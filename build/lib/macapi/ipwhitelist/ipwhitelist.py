@@ -36,9 +36,9 @@ class Whitelist(ApiBase):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-G', '--get', action='store_true', help="get's the currnet group IP Whitelist")
-parser.add_argument('-C', '--create', action='store_true', help='replace current alerts confifuration')
-parser.add_argument('-D', '--delete', action='store_true', help='delte a single alert')
+parser.add_argument('-G', '--get', help="get's the currnet group IP Whitelist")
+parser.add_argument('-C', '--create', help='replace current alerts confifuration')
+parser.add_argument('-D', '--delete', help='delte a single alert')
 parser.add_argument('-f', '--file', help='write file to current directory unless absolute path is provided')
 parser.add_argument('-g', '--group_id', required=True, help='id of the group that you are trying to make the changes for')
 parser.add_argument('-u', '--api_user', required=True, help='the email address you use to login')
@@ -62,7 +62,7 @@ else:
     print('you did not enter an option...')
 
 def main():
-    run 
+    run
 
 
 if __name__ == '__main__':
