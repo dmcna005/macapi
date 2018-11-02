@@ -67,7 +67,7 @@ class ApiBase(object):
         s = self.session
         logging.info("Executing DELETE To URL: {}".format(url))
         headers = {'content-type': 'application/json'}
-        r = s.delte(
+        r = s.delete(
             url,
             auth=HTTPDigestAuth(self.api_user, self.api_key),
             data=json.dumps(json_body),

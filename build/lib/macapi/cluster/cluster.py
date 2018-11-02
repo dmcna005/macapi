@@ -107,6 +107,20 @@ class Cluster(ApiBase):
         result = self.patch(url, data)
         return result
 
+    def delete_cluster(self, group_id, name):
+        base_url = self.base_url
+        url = '{}/groups/{}/clusters/{}'.format(base_url, group_id, name)
+        s = Session()
+        headers = {'content-type': 'application/json'}
+        auth=HTTPDigestAuth(self.api_user, self.api_key)
+        try:
+            result = s.delete(url, auth=auth, headers=headers)
+            return result
+        except Exception as e:
+            print('\033[1;41m{}\033[1;m'.format(e))
+
+
+
 
 # Initialize the command line options parser
 parser = argparse.ArgumentParser()
@@ -118,6 +132,7 @@ parser.add_argument('-g', '--group_id', required=True, help='id of the group tha
 parser.add_argument('-u', '--api_user', required=True, help='the email address you use to login')
 parser.add_argument('-k', '--api_key', required=True, help='Your Atlas api key')
 parser.add_argument('-S', '--size', help='reszises an intance')
+parser.add_argument('-D', '--delete', help='deletes a cluster from a project')
 args = parser.parse_args()
 run = Cluster(args.group_id, args.api_user, args.api_key)
 
@@ -155,6 +170,25 @@ elif args.size:
         else:
             print('aborting...')
             sys.exit(0) # exit cleanly
+
+elif args.delete:
+    print('\033[1;33myou are about to delete {}\033[1;m'.format(args.name))
+    answer = raw_input('are you sure you want to proceed?: ')
+
+    while answer:
+
+        if answer.lower().startswith('y'):
+            delete = run.delete_cluster(args.group_id, args.name)
+            print('\033[1;32mdeleted {}, {}\033[1;m'.format(args.name, delete))
+            break
+        elif answer.lower().startswith('n'):
+            print('aborting...')
+            break
+        else:
+            print('\033[1;33myou must enter either y/n\033[1;m')
+            continue
+    sys.exit(0)
+
 else:
     print('you did not enter an option...')
 
