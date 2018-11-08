@@ -4,7 +4,7 @@
   "enabled": false,
   "readPreference": "secondary"
  },
- "name": "Cluster0",
+ "name": "",
  "providerBackupEnabled": false,
  "autoScaling": {
   "diskGBEnabled": true
@@ -28,7 +28,7 @@
      "readOnlyNodes": 0
     },
     "WESTERN_US": {
-     "priority": 5, 
+     "priority": 5,
      "electableNodes": 1,
      "readOnlyNodes": 0
     },
