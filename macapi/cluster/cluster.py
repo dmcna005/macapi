@@ -135,7 +135,7 @@ parser.add_argument('-u', '--api_user', required=True, help='the email address y
 parser.add_argument('-k', '--api_key', required=True, help='Your Atlas api key')
 parser.add_argument('-D', '--delete', action='store_true', help='deletes a cluster from a project')
 parser.add_argument('--resize', action='store_true', help='resizes an instace')
-parser.add_argument('--size', default='M10', type=str, help="size of an instance in ['M10',...,'M60']")
+parser.add_argument('--size', default='M10', help="size of an instance in ['M10',...,'M60']")
 parser.add_argument('--nodes', default=3, type=int, help='number of nodes per shard or replicaSet')
 parser.add_argument('--shards', default=1, type=int, help='number of replicaSets to deploy')
 args = parser.parse_args()
@@ -156,9 +156,14 @@ if args.get:
         print(get)
 elif args.create:
         #check that the size_name variable is not empty and that it start with M
-            #if args.size.upper().startswith('m'):
+            if args.size:
+                if args.size != "":
+                    if args.size.startswith('m'):
+                        size = args.size.upper()
+            else:
+                size = args.size
             if args.nodes == 5:
-                print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, args.size, args.nodes))
+                print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, size, args.nodes))
                 answer = raw_input('type y/n: ')
                 if answer.lower().startswith('y'):
                     create = run.create_cluster_5(args.group_id, args.name, args.size, args.nodes)
@@ -166,7 +171,7 @@ elif args.create:
                     print('aborting...')
                     sys.exit(0) # exit cleanly
             elif args.nodes == 3:
-                print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, args.size, args.nodes))
+                print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, size, args.nodes))
                 answer = raw_input('type y/n: ')
                 if answer.lower().startswith('y'):
                     create = run.create_cluster_3(args.group_id, args.name, args.size, args.nodes)
