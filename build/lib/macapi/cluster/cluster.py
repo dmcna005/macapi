@@ -156,34 +156,32 @@ if args.get:
         print(get)
 elif args.create:
         #check that the size_name variable is not empty and that it start with M
-            if args.size:
-                if args.size != "":
-                    if args.size.startswith('m'):
-                        size = args.size.upper()
-            else:
-                size = args.size
-            if args.nodes == 5:
-                print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, size, args.nodes))
-                answer = raw_input('type y/n: ')
-                if answer.lower().startswith('y'):
-                    create = run.create_cluster_5(args.group_id, args.name, args.size, args.nodes)
-                elif answer.lower().startswith('n'):
-                    print('aborting...')
-                    sys.exit(0) # exit cleanly
-            elif args.nodes == 3:
-                print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, size, args.nodes))
-                answer = raw_input('type y/n: ')
-                if answer.lower().startswith('y'):
-                    create = run.create_cluster_3(args.group_id, args.name, args.size, args.nodes)
-                elif answer.lower().startswith('n'):
-                    print('aborting...')
-                    sys.exit(0) # exit cleanly
+        if args.size:
+            print('\033[1;33mchoices are M10, M20, M30, M40, M50 and M60\033[1;m]')
+             size_name = raw_input('enter the instance size: ')
+             # check that the size_name variable is not empty
+            if size_name != '' and size_name.upper().startswith('m'):
+                    if args.nodes == 5:
+                        print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, size_name, args.nodes))
+                        answer = raw_input('type y/n: ')
+                        if answer.lower().startswith('y'):
+                            create = run.create_cluster_5(args.group_id, args.name, args.size, args.nodes)
+                        elif answer.lower().startswith('n'):
+                            print('aborting...')
+                            sys.exit(0) # exit cleanly
+                    elif args.nodes == 3:
+                        print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, size_name, args.nodes))
+                        answer = raw_input('type y/n: ')
+                        if answer.lower().startswith('y'):
+                            create = run.create_cluster_3(args.group_id, args.name, args.size, args.nodes)
+                        elif answer.lower().startswith('n'):
+                            print('aborting...')
+                            sys.exit(0) # exit cleanly
 
-            else:
-                # print message if correct size was not entered
-                print('\033[1;33mchoices are M20, M30, M40, M50 and M60. Defaults size is M10\033[1;m]')
-                print('aborting...')
-                sys.exit(0)
+        else:
+            print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, args.size, args.nodes))
+            create = run.create_cluster_5(args.group_id, args.name, args.size, args.nodes)
+            sys.exit(0)
 
 elif args.resize:
     print('\033[1;33mchoices are M10, M20, M30, M40, M50 and M60\033[1;m]')
