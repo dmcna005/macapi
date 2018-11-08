@@ -158,7 +158,7 @@ elif args.create:
         #check that the size_name variable is not empty and that it start with M
         if args.size:
             print('\033[1;33mchoices are M10, M20, M30, M40, M50 and M60\033[1;m]')
-             size_name = raw_input('enter the instance size: ')
+            size_name = raw_input('enter the instance size: ')
              # check that the size_name variable is not empty
             if size_name != '' and size_name.upper().startswith('m'):
                     if args.nodes == 5:
