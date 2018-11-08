@@ -39,12 +39,10 @@ class Cluster(ApiBase):
             print('error found: ' + e)
 
     # creates an m10 replicaSet
-    def create_small(self, group_id, name):
+    def create_cluster_3(self, group_id, name, size, nodes):
         s = Session()
         base_url = self.base_url
-        path = os.path.abspath('macapi/json_files')
-        directory = os.path.join(path, 'cluster_m10.json')
-        name = name
+        directory = os.path.join('macapi', 'json_files', 'base_config_3.json')
         url = "{}/groups/{}/clusters".format(base_url, group_id)
         auth = HTTPDigestAuth(self.api_user, self.api_key)
         headers = {'content-type': 'application/json'}
@@ -55,7 +53,10 @@ class Cluster(ApiBase):
             for key in json_file.keys():
                 try:
                     if key == 'name':
-                        json_file['name'] = name
+                        key['name'] = name
+
+                    if key == 'providerSettings.instanceSizeName':
+                        key['providerSettings.instanceSizeName'] = size
                         print(json_file)
                         #yield True
                     #r = s.post(json_file)
@@ -69,36 +70,37 @@ class Cluster(ApiBase):
                 except:
                     self.check_response(r)
 
-     #creates an m30 replicaSet
-        def create_medium(self, group_id, name):
-            s = Session()
-            base_url = self.base_url
-            path = os.path.abspath('macapi/json_files')
-            directory = os.path.join(path, 'cluster_m30.json')
-            name = name
-            url = "{}/groups/{}/clusters".format(base_url, group_id)
-            auth = HTTPDigestAuth(self.api_user, self.api_key)
-            headers = {'content-type': 'application/json'}
-            logging.info("Executing POST: {}".format(url))
+    def create_cluster_5(self, group_id, name, size, nodes):
+        s = Session()
+        base_url = self.base_url
+        directory = os.path.join('macapi', 'json_files', 'base_config_5.json')
+        url = "{}/groups/{}/clusters".format(base_url, group_id)
+        auth = HTTPDigestAuth(self.api_user, self.api_key)
+        headers = {'content-type': 'application/json'}
+        logging.info("Executing POST: {}".format(url))
 
-            with open(directory) as f:
-                json_file = json.load(f)
-                for key in json_file.keys():
-                    try:
-                        if key == 'name':
-                            json_file['name'] = name
-                            print(json_file)
-                            #yield True
-                        #r = s.post(json_file)
-                        r = s.post(url,
-                            auth=auth,
-                            data=json.dumps(json_file),
-                            headers=headers
-                            )
+        with open(directory) as f:
+            json_file = json.load(f)
+            for key in json_file.keys():
+                try:
+                    if key == 'name':
+                        json_file['name'] = name
 
-                            #yield false
-                    except:
-                        self.check_response(r)
+                    if key == 'providerSettings.instanceSizeName':
+                        json_file['providerSettings.instanceSizeName'] = size
+                        print(json_file)
+                        #yield True
+                    #r = s.post(json_file)
+                    r = s.post(url,
+                        auth=auth,
+                        data=json.dumps(json_file),
+                        headers=headers
+                        )
+
+                        #yield false
+                except:
+                    self.check_response(r)
+
 
     def resize(self, group_id, name, size):
         base_url = self.base_url
@@ -126,13 +128,16 @@ class Cluster(ApiBase):
 parser = argparse.ArgumentParser()
 parser.add_argument('-G', '--get', action='store_true', help="get's the currnet group cluster configuration")
 parser.add_argument('-C', '--create', action='store_true', help='creates a new cluster')
-parser.add_argument('-f', '--file', action='store_true', help='write file to current directy or path')
+parser.add_argument('-f', '--file', help='write file to current directy or path')
 parser.add_argument('-n', '--name', required=True, help='the name of the cluster')
 parser.add_argument('-g', '--group_id', required=True, help='id of the group that you are trying to make the changes for')
 parser.add_argument('-u', '--api_user', required=True, help='the email address you use to login')
 parser.add_argument('-k', '--api_key', required=True, help='Your Atlas api key')
-parser.add_argument('-S', '--size', action='store_true', help='reszises an intance')
 parser.add_argument('-D', '--delete', action='store_true', help='deletes a cluster from a project')
+parser.add_argument('--resize', action='store_true', help='resizes an instace')
+parser.add_argument('--size', default='M10', type=str, help="size of an instance in ['M10',...,'M60']")
+parser.add_argument('--nodes', default=3, type=int, help='number of nodes per shard or replicaSet')
+parser.add_argument('--shards', default=1, type=int, help='number of replicaSets to deploy')
 args = parser.parse_args()
 run = Cluster(args.group_id, args.api_user, args.api_key)
 
@@ -142,7 +147,6 @@ if args.get:
         directory = os.path.relpath(args.file)
         with open(directory, 'w') as f:
             sys.stdout = f
-            # get_cluster is a return method so we need to save it as an object for next line of the code
             get = run.get_cluster(args.group_id, args.name)
             # printing get so that it gets redirected into standard out which is the object f
             print(get)
@@ -151,25 +155,47 @@ if args.get:
         get = run.get_cluster(args.group_id, args.name)
         print(get)
 elif args.create:
-    answer = raw_input('Enter small or medium: ')
-    if answer.lower().startswith('s'):
-        run.create_small(args.group_id, args.name)
-    elif answer.lower().startswith('m'):
-        run.create_medium(args.group_id, args.name)
+        #check that the size_name variable is not empty and that it start with M
+            #if args.size.upper().startswith('m'):
+            if args.nodes == 5:
+                print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, args.size, args.nodes))
+                answer = raw_input('type y/n: ')
+                if answer.lower().startswith('y'):
+                    create = run.create_cluster_5(args.group_id, args.name, args.size, args.nodes)
+                elif answer.lower().startswith('n'):
+                    print('aborting...')
+                    sys.exit(0) # exit cleanly
+            elif args.nodes == 3:
+                print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, args.size, args.nodes))
+                answer = raw_input('type y/n: ')
+                if answer.lower().startswith('y'):
+                    create = run.create_cluster_3(args.group_id, args.name, args.size, args.nodes)
+                elif answer.lower().startswith('n'):
+                    print('aborting...')
+                    sys.exit(0) # exit cleanly
 
-elif args.size:
-    print('\033[1;33monly accepts sizes M10 or M30\033[1;m]')
-    size_name = raw_input('enter the instance size: ')
-    # check that the size_name variable is not empty
-    if size_name != '':
-        print('you are about to rezie cluster name: {} to {} '.format(args.name, size_name))
+            else:
+                # print message if correct size was not entered
+                print('\033[1;33mchoices are M20, M30, M40, M50 and M60. Defaults size is M10\033[1;m]')
+                print('aborting...')
+                sys.exit(0)
+
+elif args.resize:
+    print('\033[1;33mchoices are M10, M20, M30, M40, M50 and M60\033[1;m]')
+    size_name = raw_input('enter the instance size to resize to : ')
+    # check that the size_name variable is not empty and that it start with M
+    if size_name != '' and size_name.upper().startswith('m'):
+        print('you are about to rezie cluster name: {} to {}!'.format(args.name, args.resize))
         answer = raw_input('type y/n: ')
         if answer.lower().startswith('y'):
-            update = run.resize(args.group_id, args.name, args.size)
-            print(update)
-        else:
+            create = run.resize(args.group_id, args.name, args.resize)
+            print(create)
+        elif answer.lower().startswith('n'):
             print('aborting...')
             sys.exit(0) # exit cleanly
+        else:
+            sys.exit(0) # exit cleanly
+
 
 elif args.delete:
     print('\033[1;33myou are about to delete cluster name: {}\033[1;m'.format(args.name))
