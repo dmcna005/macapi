@@ -124,15 +124,15 @@ class Cluster(ApiBase):
 
 # Initialize the command line options parser
 parser = argparse.ArgumentParser()
-parser.add_argument('-G', '--get', help="get's the currnet group cluster configuration")
-parser.add_argument('-C', '--create', help='creates a new cluster')
-parser.add_argument('-f', '--file', help='write file to current directy or path')
+parser.add_argument('-G', '--get', action='store_true', help="get's the currnet group cluster configuration")
+parser.add_argument('-C', '--create', action='store_true', help='creates a new cluster')
+parser.add_argument('-f', '--file', action='store_true', help='write file to current directy or path')
 parser.add_argument('-n', '--name', required=True, help='the name of the cluster')
 parser.add_argument('-g', '--group_id', required=True, help='id of the group that you are trying to make the changes for')
 parser.add_argument('-u', '--api_user', required=True, help='the email address you use to login')
 parser.add_argument('-k', '--api_key', required=True, help='Your Atlas api key')
-parser.add_argument('-S', '--size', help='reszises an intance')
-parser.add_argument('-D', '--delete', help='deletes a cluster from a project')
+parser.add_argument('-S', '--size', action='store_true', help='reszises an intance')
+parser.add_argument('-D', '--delete', action='store_true', help='deletes a cluster from a project')
 args = parser.parse_args()
 run = Cluster(args.group_id, args.api_user, args.api_key)
 
@@ -162,7 +162,7 @@ elif args.size:
     size_name = raw_input('enter the instance size: ')
     # check that the size_name variable is not empty
     if size_name != '':
-        print('you are about to rezie {} to {} '.format(args.name, size_name))
+        print('you are about to rezie cluster name: {} to {} '.format(args.name, size_name))
         answer = raw_input('type y/n: ')
         if answer.lower().startswith('y'):
             update = run.resize(args.group_id, args.name, args.size)
@@ -172,7 +172,7 @@ elif args.size:
             sys.exit(0) # exit cleanly
 
 elif args.delete:
-    print('\033[1;33myou are about to delete {}\033[1;m'.format(args.name))
+    print('\033[1;33myou are about to delete cluster name: {}\033[1;m'.format(args.name))
     answer = raw_input('are you sure you want to proceed?: ')
 
     while answer:
@@ -186,6 +186,8 @@ elif args.delete:
             break
         else:
             print('\033[1;33myou must enter either y/n\033[1;m')
+            # restore the value for answer so that it can be re-evaluated
+            answer = raw_input('are you sure you want to proceed?: ')
             continue
     sys.exit(0)
 
