@@ -167,7 +167,7 @@ elif args.create:
                 print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m'.format(args.name, size, args.nodes))
                 answer = raw_input('type y/n: ')
                 if answer.lower().startswith('y'):
-                    create = run.create_cluster_5(args.group_id, args.name, args.size, args.nodes)
+                    create = run.create_cluster_5(args.group_id, args.name, size, args.nodes)
                     # print the return object so we get some verbosity
                     print(create)
                 elif answer.lower().startswith('n'):
@@ -196,7 +196,7 @@ elif args.resize:
         print('you are about to rezie cluster name: {} to {}!'.format(args.name, args.resize))
         answer = raw_input('type y/n: ')
         if answer.lower().startswith('y'):
-            create = run.resize(args.group_id, args.name, args.resize)
+            create = run.resize(args.group_id, size, args.resize)
             print(create)
         elif answer.lower().startswith('n'):
             print('aborting...')
