@@ -12,7 +12,7 @@
  "mongoDBVersion": "3.6.8",
  "clusterType": "REPLICASET",
  "providerSettings": {
-  "instanceSizeName": "M10",
+  "instanceSizeName": "",
   "providerName": "GCP"
  },
  "diskSizeGB": 10.0,

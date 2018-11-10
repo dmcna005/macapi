@@ -70,6 +70,8 @@ class Cluster(ApiBase):
                 except:
                     self.check_response(r)
 
+        return r
+
     def create_cluster_5(self, group_id, name, size, nodes):
         s = Session()
         base_url = self.base_url
@@ -100,6 +102,7 @@ class Cluster(ApiBase):
                         #yield false
                 except:
                     self.check_response(r)
+        return r
 
 
     def resize(self, group_id, name, size):
