@@ -61,11 +61,9 @@ class Cluster(ApiBase):
                         print(json_file)
                         #yield True
                     #r = s.post(json_file)
-                    self.post(url)
+                    result = self.post(url)
 
-                        #yield false
                 except:
-                    result = r.json()
                     print('\033[1;31mresult\n')
 
         return r.json()
@@ -91,11 +89,10 @@ class Cluster(ApiBase):
                         print(json_file)
                         #yield True
                     #r = s.post(json_file)
-                        self.post(url)
+                        result = self.post(url)
 
                             #yield false
                 except:
-                    result = r.json()
                     print('\033[1;31mresult\n')
 
             return r.json()
