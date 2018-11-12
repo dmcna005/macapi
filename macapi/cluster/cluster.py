@@ -94,9 +94,9 @@ class Cluster(ApiBase):
                         self.post(url)
 
                             #yield false
-                    except:
-                        result = r.json()
-                        print('\033[1;31mresult\n')
+                except:
+                    result = r.json()
+                    print('\033[1;31mresult\n')
 
             return r.json()
 
