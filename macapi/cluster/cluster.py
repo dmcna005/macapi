@@ -61,12 +61,10 @@ class Cluster(ApiBase):
                         print(json_file)
                         #yield True
                     #r = s.post(json_file)
-                    result = self.post(url)
+                    self.post(url, json_file)
 
-                except:
-                    print('\033[1;31mresult\n')
-
-        return r.json()
+                except exception as e:
+                    print(e)
 
     def create_cluster_5(self, group_id, name, size, nodes):
         s = Session()
@@ -89,13 +87,11 @@ class Cluster(ApiBase):
                         print(json_file)
                         #yield True
                     #r = s.post(json_file)
-                        result = self.post(url)
+                        self.post(url)
 
                             #yield false
-                except:
-                    print('\033[1;31mresult\n')
-
-            return r.json()
+                except Exception as e:
+                    print(e)
 
 
     def resize(self, group_id, name, size):
