@@ -127,7 +127,7 @@ parser.add_argument('-u', '--api_user', required=True, help='the email address y
 parser.add_argument('-k', '--api_key', required=True, help='Your Atlas api key')
 parser.add_argument('-D', '--delete', action='store_true', help='deletes a cluster from a project')
 parser.add_argument('--resize', action='store_true', help='resizes an instace')
-parser.add_argument('--size', default='M10', help="size of an instance in ['M10',...,'M60']")
+parser.add_argument('--size', help="size of an instance in ['M10',...,'M60']")
 parser.add_argument('--nodes', default=3, type=int, help='number of nodes per shard or replicaSet')
 parser.add_argument('--shards', default=1, type=int, help='number of replicaSets to deploy')
 args = parser.parse_args()
