@@ -87,7 +87,7 @@ class Cluster(ApiBase):
                         print(json_file)
                         #yield True
                     #r = s.post(json_file)
-                        self.post(url)
+                    self.post(url, json_file)
 
                             #yield false
                 except:
