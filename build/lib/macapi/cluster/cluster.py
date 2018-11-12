@@ -154,7 +154,7 @@ elif args.create:
                 sys.exit(0)
             break
         if args.size.startswith('m'):
-            args.size = args.size.upper()
+            args.size.upper()
             if args.nodes == 3:
                 print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m'.format(args.name, args.size, args.nodes))
                 answer = raw_input('type y/n: ')
