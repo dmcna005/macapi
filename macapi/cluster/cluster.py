@@ -42,6 +42,7 @@ class Cluster(ApiBase):
     def create_cluster_3(self, group_id, name, size, nodes):
         s = Session()
         base_url = self.base_url
+        # use join to make directory platform independent
         directory = os.path.join('macapi', 'json_files', 'base_config_3.json')
         url = "{}/groups/{}/clusters".format(base_url, group_id)
         auth = HTTPDigestAuth(self.api_user, self.api_key)
@@ -55,8 +56,8 @@ class Cluster(ApiBase):
                     if key == 'name':
                         json_file['name'] = name
 
-                    if key == 'providerSettings.instanceSizeName':
-                        json_file['providerSettings.instanceSizeName'] = size
+                    if key == 'providerSettings']:
+                        json_file['providerSettings']['instanceSizeName'] = size
                         print(json_file)
                         #yield True
                     #r = s.post(json_file)
