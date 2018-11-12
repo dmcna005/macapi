@@ -56,7 +56,7 @@ class Cluster(ApiBase):
                     if key == 'name':
                         json_file['name'] = name
 
-                    if key == 'providerSettings']:
+                    if key == 'providerSettings':
                         json_file['providerSettings']['instanceSizeName'] = size
                         print(json_file)
                         #yield True
