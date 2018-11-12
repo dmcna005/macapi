@@ -4,7 +4,7 @@
   "enabled": false,
   "readPreference": "secondary"
  },
- "name": "",
+ "name": "Test",
  "providerBackupEnabled": false,
  "autoScaling": {
   "diskGBEnabled": true
