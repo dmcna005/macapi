@@ -63,8 +63,8 @@ class Cluster(ApiBase):
                     #r = s.post(json_file)
                     self.post(url, json_file)
 
-                except exception as e:
-                    print(e)
+                except:
+                    pass
 
     def create_cluster_5(self, group_id, name, size, nodes):
         s = Session()
@@ -90,8 +90,8 @@ class Cluster(ApiBase):
                         self.post(url)
 
                             #yield false
-                except Exception as e:
-                    print(e)
+                except:
+                    pass
 
 
     def resize(self, group_id, name, size):
