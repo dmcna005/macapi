@@ -151,7 +151,7 @@ elif args.create:
             instance_size = ['M10', 'M20', 'M30', 'M40', 'M50', 'M60']
             if args.size not in instance_size:
                 print('\033[1;33m--size must be one of the following: M10, M20, M30, M40, M50 or M60\033[1;m')
-        if args.size.startswith('m'):
+        elif args.size.startswith('m'):
             size = args.size.upper()
             if args.nodes == 3:
                 print('****3 nodes***')
