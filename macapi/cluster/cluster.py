@@ -149,7 +149,7 @@ if args.get:
 elif args.create:
         if args.size:
             instance_size = ['M10', 'M20', 'M30', 'M40', 'M50', 'M60']
-            if args.size.startswith('m').upper() not in instance_size:
+            if args.size not in instance_size:
                 print('\033[1;33m--size must be one of the following: M10, M20, M30, M40, M50 or M60\033[1;m')
                 sys.exit(0)
         if args.size.startswith('m').upper() in isinstance_size:
