@@ -152,7 +152,7 @@ elif args.create:
             if args.size not in instance_size:
                 print('\033[1;33m--size must be one of the following: M10, M20, M30, M40, M50 or M60\033[1;m')
                 sys.exit(0)
-        if args.size.startswith('m').upper() in isinstance_size:
+        if args.size.startswith('m'):
             size = args.size.upper()
             if args.nodes == 3:
                 print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m'.format(args.name, size, args.nodes))
