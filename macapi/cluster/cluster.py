@@ -191,7 +191,7 @@ elif args.resize:
         print('you are about to rezie cluster name: {} to {}!'.format(args.name, args.resize))
         answer = raw_input('type y/n: ')
         if answer.lower().startswith('y'):
-            create = run.resize(args.group_id, size, args.resize)
+            create = run.resize(args.group_id, args.size, args.resize)
             print(create)
         elif answer.lower().startswith('n'):
             print('aborting...')

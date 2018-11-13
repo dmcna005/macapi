@@ -60,12 +60,12 @@ class Cluster(ApiBase):
 
                     #yield True
                 #r = s.post(json_file)
-                try:
-                    print(json_file)
-                    self.post(url, json_file)
+            try:
+                print(json_file)
+                self.post(url, json_file)
 
-                except:
-                    pass
+            except:
+                pass
 
     def create_cluster_5(self, group_id, name, size, nodes):
         s = Session()
@@ -79,20 +79,22 @@ class Cluster(ApiBase):
         with open(directory) as f:
             json_file = json.load(f)
             for key in json_file.keys():
-                try:
-                    if key == 'name':
-                        json_file['name'] = name
+                if key == 'name':
+                    json_file['name'] = name
 
-                    if key == 'providerSettings':
-                        json_file['providerSettings']['instanceSizeName'] = size
-                        print(json_file)
-                        #yield True
-                    #r = s.post(json_file)
-                    self.post(url, json_file)
+                if key == 'providerSettings':
+                    json_file['providerSettings']['instanceSizeName'] = size
 
-                            #yield false
-                except:
-                    pass
+                    #yield True
+                #r = s.post(json_file)
+            try:
+
+                print(json_file)
+                self.post(url, json_file)
+
+                        #yield false
+            except:
+                pass
 
 
     def resize(self, group_id, name, size):
