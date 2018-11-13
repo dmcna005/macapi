@@ -183,9 +183,6 @@ elif args.create:
                 print('\033[1;33mcreating a cluster with Name: {}, instance type: {} and number of nodes: {}\033[1;m]'.format(args.name, args.size, args.nodes))
                 create = run.create_cluster_3(args.group_id, args.name, args.size, args.nodes)
                 sys.exit(0)
-    else:
-        print('\033[1;31myou did not enter a correct size\033[1;m')
-        sys.exit(0)
 
 elif args.resize:
     print('\033[1;33mchoices are M10, M20, M30, M40, M50 and M60\033[1;m]')
