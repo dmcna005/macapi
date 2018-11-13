@@ -187,7 +187,7 @@ elif args.resize:
     print('\033[1;33mchoices are M10, M20, M30, M40, M50 and M60\033[1;m]')
     size_name = raw_input('enter the instance size to resize to : ')
     # check that the size_name variable is not empty and that it start with M
-    if size_name != '' and size_name.upper().startswith('m'):
+    if size_name.upper().startswith('m'):
         print('you are about to rezie cluster name: {} to {}!'.format(args.name, size_name))
         answer = raw_input('type y/n: ')
         if answer.lower().startswith('y'):

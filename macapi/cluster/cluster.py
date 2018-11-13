@@ -101,9 +101,8 @@ class Cluster(ApiBase):
         base_url = self.base_url
         url = "{}/groups/{}/clusters/{}".format(base_url, group_id, name)
         data = {'providerSettings.instanceSizeName' : size}
-        result = self.patch(url, data)
-        return result
-
+        self.patch(url, data)
+        
     def delete_cluster(self, group_id, name):
         base_url = self.base_url
         url = '{}/groups/{}/clusters/{}'.format(base_url, group_id, name)
@@ -196,8 +195,8 @@ elif args.resize:
         elif answer.lower().startswith('n'):
             print('aborting...')
             sys.exit(0) # exit cleanly
-        else:
-            sys.exit(0) # exit cleanly
+    else:
+        sys.exit(0) # exit cleanly
 
 
 elif args.delete:
