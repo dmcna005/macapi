@@ -61,7 +61,7 @@ class Cluster(ApiBase):
                         print(json_file)
                         #yield True
                     #r = s.post(json_file)
-                     r = s.post(url,
+                        r = s.post(url,
                             auth=auth,
                             data=json.dumps(json_file),
                             headers=headers

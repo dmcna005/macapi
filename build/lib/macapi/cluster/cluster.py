@@ -61,10 +61,14 @@ class Cluster(ApiBase):
                         print(json_file)
                         #yield True
                     #r = s.post(json_file)
-                    self.post(url, json_file)
+                     r = s.post(url,
+                            auth=auth,
+                            data=json.dumps(json_file),
+                            headers=headers
+                            )
 
                 except:
-                    pass
+                    self.check_response(r)
 
     def create_cluster_5(self, group_id, name, size, nodes):
         s = Session()
