@@ -52,20 +52,17 @@ class Cluster(ApiBase):
         with open(directory) as f:
             json_file = json.load(f)
             for key in json_file.keys():
-                try:
-                    if key == 'name':
-                        json_file['name'] = name
+                if key == 'name':
+                    json_file['name'] = name
 
-                    if key == 'providerSettings':
-                        json_file['providerSettings']['instanceSizeName'] = size
-                        print(json_file)
-                        #yield True
-                    #r = s.post(json_file)
-                    r = s.post(url,
-                        auth=auth,
-                        data=json.dumps(json_file),
-                        headers=headers
-                        )
+                if key == 'providerSettings':
+                    json_file['providerSettings']['instanceSizeName'] = size
+
+                    #yield True
+                #r = s.post(json_file)
+                try:
+                    print(json_file)
+                    self.post(url, json_file)
 
                 except:
                     self.check_response(r)

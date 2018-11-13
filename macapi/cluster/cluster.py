@@ -65,7 +65,7 @@ class Cluster(ApiBase):
                     self.post(url, json_file)
 
                 except:
-                    self.check_response(r)
+                    pass
 
     def create_cluster_5(self, group_id, name, size, nodes):
         s = Session()
