@@ -101,8 +101,14 @@ class Cluster(ApiBase):
         base_url = self.base_url
         url = "{}/groups/{}/clusters/{}".format(base_url, group_id, name)
         data = {'providerSettings.instanceSizeName' : size}
-        self.patch(url, data)
-        
+        try:
+            result = self.patch(url, data)
+            return result
+
+        except:
+            pass
+
+
     def delete_cluster(self, group_id, name):
         base_url = self.base_url
         url = '{}/groups/{}/clusters/{}'.format(base_url, group_id, name)
