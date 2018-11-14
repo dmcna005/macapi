@@ -1,0 +1,487 @@
+[
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 60.0, 
+            "units": "MILLISECONDS", 
+            "mode": "AVERAGE", 
+            "metricName": "BACKGROUND_FLUSH_AVG"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 5, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 300.0, 
+            "units": "SECONDS", 
+            "mode": "AVERAGE", 
+            "metricName": "OPLOG_SLAVE_LAG_MASTER_TIME"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 15, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "LESS_THAN", 
+            "threshold": 6.0, 
+            "units": "HOURS", 
+            "mode": "AVERAGE", 
+            "metricName": "OPLOG_MASTER_LAG_TIME_DIFF"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 5, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 1000.0, 
+            "units": "MILLISECONDS", 
+            "mode": "AVERAGE", 
+            "metricName": "AVG_COMMAND_EXECUTION_TIME"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 2.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "EXTRA_INFO_PAGE_FAULTS"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 1, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "PRIMARY_ELECTED", 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 0.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "RESTARTS_IN_LAST_HOUR"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 2.0, 
+            "units": "GIGABITS", 
+            "mode": "AVERAGE", 
+            "metricName": "CACHE_BYTES_READ_INTO"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 5, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 2.0, 
+            "units": "GIGABITS", 
+            "mode": "AVERAGE", 
+            "metricName": "CACHE_BYTES_WRITTEN_FROM"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 5, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "LESS_THAN", 
+            "threshold": 10.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "TICKETS_AVAILABLE_READS"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 1000.0, 
+            "units": "MILLISECONDS", 
+            "mode": "AVERAGE", 
+            "metricName": "AVG_READ_EXECUTION_TIME"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 1000.0, 
+            "units": "MILLISECONDS", 
+            "mode": "AVERAGE", 
+            "metricName": "AVG_WRITE_EXECUTION_TIME"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "LESS_THAN", 
+            "threshold": 6.0, 
+            "units": "HOURS", 
+            "mode": "AVERAGE", 
+            "metricName": "OPLOG_MASTER_TIME"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 5, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "LESS_THAN", 
+            "threshold": 10.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "TICKETS_AVAILABLE_WRITES"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 10.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "GLOBAL_LOCK_CURRENT_QUEUE_READERS"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 5, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 10.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "GLOBAL_LOCK_CURRENT_QUEUE_WRITERS"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 5, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 80.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "DISK_PARTITION_UTILIZATION_DATA"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 5, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 100.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "QUERY_TARGETING_SCANNED_PER_RETURNED"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 10.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "OPERATIONS_SCAN_AND_ORDER"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 80.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "GLOBAL_LOCK_PERCENTAGE"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 3, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 1000.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "NO_PRIMARY", 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 5, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "OUTSIDE_METRIC_THRESHOLD", 
+        "metricThreshold": {
+            "operator": "GREATER_THAN", 
+            "threshold": 80.0, 
+            "units": "RAW", 
+            "mode": "AVERAGE", 
+            "metricName": "DISK_PARTITION_SPACE_USED_DATA"
+        }, 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 60, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "USER_ROLES_CHANGED_AUDIT", 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 5, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "JOINED_GROUP", 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 5, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }, 
+    {
+        "eventTypeName": "REMOVED_FROM_GROUP", 
+        "enabled": true, 
+        "groupId": "5b46a4e2c0c6e329da4dbfa8", 
+        "notifications": [
+            {
+                "typeName": "EMAIL", 
+                "intervalMin": 5, 
+                "delayMin": 0, 
+                "emailAddress": "ftddatabase@ftdi.com"
+            }
+        ]
+    }
+]
