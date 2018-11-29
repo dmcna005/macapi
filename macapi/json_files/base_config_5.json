@@ -23,12 +23,12 @@
   {
    "regionsConfig": {
     "US_EAST_4": {
-     "priority": 6,
+     "priority": 5,
      "electableNodes": 2,
      "readOnlyNodes": 0
     },
     "WESTERN_US": {
-     "priority": 5,
+     "priority": 6,
      "electableNodes": 1,
      "readOnlyNodes": 0
     },
