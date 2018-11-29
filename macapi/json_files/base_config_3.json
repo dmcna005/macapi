@@ -9,7 +9,7 @@
  "autoScaling": {
   "diskGBEnabled": true
  },
- "mongoDBVersion": "3.6.8",
+ "mongoDBVersion": "3.6.9",
  "clusterType": "REPLICASET",
  "providerSettings": {
   "instanceSizeName": "",
