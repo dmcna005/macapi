@@ -21,6 +21,9 @@ macapi
 
 `alerts <https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166232797/Alerts>`__
   Used to get and create alert configuration for a single group
+  
+`cluster <https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166232797/Alerts>`__
+  Used to create and modify cluster configurations for a given group
       
    
 `ip_whitelist <https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166560671/IP+Whitelist>`__
