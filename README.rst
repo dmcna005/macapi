@@ -81,17 +81,35 @@ Used to create and modify cluster configurations for a given group.
   --shards SHARDS       number of replicaSets to deploy
       
    
-`ip_whitelist <https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166560671/IP+Whitelist>`__
-  Create, delete, update and getip whitelist information for a single group.
+``ip_whitelist``
+~~~~~~~~~~~~~~~~
 
-**Requirements and Installation Instructions**
+ Used to create, delete, update and getip whitelist information for a single group in Atlas.
+ 
+ .. code-block:: console
+      
+      $ ipwhitelist -h
+         usage: ipwhitelist [-h] [-G] [-C] [-D] [-f FILE] -g GROUP_ID -u API_USER -k
+                   API_KEY
 
-For installation instructions please visit the the `installation page
-<https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166560639/Installation>`__.
+      optional arguments:
+        -h, --help            show this help message and exit
+        -G, --get             get's the currnet group IP Whitelist
+        -C, --create          replace current alerts confifuration
 
-**Thinking about contributing?**
+        -D, --delete          delte a single alert
+        -f FILE, --file FILE  write file to current directory unless absolute path
+                              is provided
+        -g GROUP_ID, --group_id GROUP_ID
+                              id of the group that you are trying to make the
+                              changes for
+        -u API_USER, --api_user API_USER
+                              the email address you use to login
+        -k API_KEY, --api_key API_KEY
+                              Your Atlas api key
+      
 
-Please read the `contribution page <https://ftdcorp.atlassian.net/wiki/spaces/DBA/pages/166495041/Contribution>`__.
+
 
 
 .. |Python 27| image:: https://img.shields.io/badge/Python-2.7-brightgreen.svg?style=flat
