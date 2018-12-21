@@ -35,7 +35,6 @@ setup(name='macapi',
       description=("scripts written to interact with mongodb cloud api"),
       license='Apache 2.0',
       classifiers=[
-        classifiers=[
         'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 2.7',
