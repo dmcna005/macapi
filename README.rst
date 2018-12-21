@@ -14,7 +14,6 @@ macapi
 
 .. figure:: https://bitbucket.org/dmcna005/macapi/raw/85cc9968c8b35ab5b675eecb7bf56dc6ab69fee6/macapi.png
    :alt: mtools box
---------------------------------------------------
 
 **The following scripts makes up the macapi toolkit**:
 
