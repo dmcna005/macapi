@@ -35,10 +35,11 @@ setup(name='macapi',
       description=("scripts written to interact with mongodb cloud api"),
       license='Apache 2.0',
       classifiers=[
-        'Development Status :: 1 - Development',
-        'License :: OSI Approved :: Apache 2.0 License',
+        classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 2.7',
-        'Topic :: Text Processing :: Linguistic',
+        'Topic :: Database :: Database Engines/Servers',
         'Intended Audience :: Developers'
       ],
       packages=packages,
