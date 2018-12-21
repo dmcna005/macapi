@@ -36,9 +36,9 @@ setup(name='macapi',
       license='Apache 2.0',
       classifiers=[
         'Development Status :: 5 - Production/Stable',
-        'License :: Apache 2.0 License',
+        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 2.7',
-        'Topic :: Database',
+        'Topic :: Database :: Database Engines/Servers',
         'Intended Audience :: Developers'
       ],
       packages=packages,
