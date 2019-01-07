@@ -43,7 +43,8 @@ class Cluster(ApiBase):
         s = Session()
         base_url = self.base_url
         # use join to make directory platform independent
-        directory = os.path.join('macapi', 'json_files', 'base_config_3.json')
+        file_dir = os.path.dirname(os.path.relpath('__file__'))
+        base_config_3 = os.path.join(file_dir, 'json_files/base_config_3.json')
         url = "{}/groups/{}/clusters".format(base_url, group_id)
         auth = HTTPDigestAuth(self.api_user, self.api_key)
         headers = {'content-type': 'application/json'}
@@ -70,7 +71,8 @@ class Cluster(ApiBase):
     def create_cluster_5(self, group_id, name, size, nodes):
         s = Session()
         base_url = self.base_url
-        directory = os.path.join('macapi', 'json_files', 'base_config_5.json')
+        file_dir = os.path.dirname(os.path.relpath('__file__'))
+        base_config_5 = os.path.join(file_dir, 'json_files/base_config_5.json')
         url = "{}/groups/{}/clusters".format(base_url, group_id)
         auth = HTTPDigestAuth(self.api_user, self.api_key)
         headers = {'content-type': 'application/json'}
