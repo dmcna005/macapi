@@ -50,7 +50,7 @@ class Cluster(ApiBase):
         headers = {'content-type': 'application/json'}
         logging.info("Executing POST: {}".format(url))
 
-        with open(directory) as f:
+        with open(base_config_3) as f:
             json_file = json.load(f)
             for key in json_file.keys():
                 if key == 'name':
@@ -78,7 +78,7 @@ class Cluster(ApiBase):
         headers = {'content-type': 'application/json'}
         logging.info("Executing POST: {}".format(url))
 
-        with open(directory) as f:
+        with open(create_cluster_5) as f:
             json_file = json.load(f)
             for key in json_file.keys():
                 if key == 'name':
