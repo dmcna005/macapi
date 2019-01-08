@@ -8,7 +8,7 @@ macapi
 
 
 
-.. figure:: https://github.com/dmcna005/macapi/blob/master/macapi.png
+.. figure:: https://raw.githubusercontent.com/dmcna005/macapi/master/macapi.png
    :alt: macapi icon
 
 
