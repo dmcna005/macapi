@@ -4,7 +4,7 @@ macapi
 
 |Python 27|
 
-**What is macapi?** macapi is a tool used to easily access MongoDB Atlas by leverating its resful api. It's primarily used to easilty adminsiter Atlas clusters and groups.
+**macapi** what is macapi? It is a set of tools used to easily access MongoDB Atlas by leverating its resful api. It's primarily used to easilty adminsiter Atlas clusters and groups.
 
 
 
@@ -22,7 +22,7 @@ Installation
 **The toolkit constists of the following tools**:
 
 
-``alerts``
+alerts
 ~~~~~~~~~~
 
 Used to get and create alert configuration for a single group.
@@ -47,7 +47,7 @@ Used to get and create alert configuration for a single group.
      -k API_KEY, --api_key API_KEY
 
   
-``cluster``
+cluster
 ~~~~~~~~~~~
 
 Used to create and modify cluster configurations for a given group.
@@ -81,7 +81,7 @@ Used to create and modify cluster configurations for a given group.
   --shards SHARDS       number of replicaSets to deploy
       
    
-``ip_whitelist``
+ip_whitelist
 ~~~~~~~~~~~~~~~~
 
  Used to create, delete, update and getip whitelist information for a single group in Atlas.
