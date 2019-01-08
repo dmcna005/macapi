@@ -9,8 +9,8 @@ macapi
 
 
 .. figure:: https://github.com/dmcna005/macapi/blob/master/macapi.png
-   :alt: macapi
---------------------------------------------------
+   :alt: macapi icon
+
 
 Installation
 ------------
